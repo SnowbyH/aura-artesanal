@@ -1,0 +1,496 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <meta name="description" content="Aura Artesanal - Atelier digital de joyería artesanal." />
+  <title>Aura Artesanal | Atelier de Joyería Artesanal</title>
+
+  <link rel="icon" type="image/svg+xml" href="{{ asset('img/logo-aura.svg') }}" />
+  <link rel="preconnect" href="https://fonts.googleapis.com" />
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+  <link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@400;500;600;700&family=Playfair+Display:ital,wght@0,600;0,700;1,400&display=swap" rel="stylesheet" />
+  <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/css/bootstrap.min.css" rel="stylesheet" crossorigin="anonymous" />
+  <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.11.3/font/bootstrap-icons.min.css" />
+  <link rel="stylesheet" href="{{ asset('css/custom.css') }}" />
+</head>
+<body data-bs-spy="scroll" data-bs-target="#menuPrincipal" data-bs-offset="80" tabindex="0">
+
+  <header>
+    <nav id="menuPrincipal" class="navbar navbar-expand-lg navbar-aura fixed-top">
+      <div class="container">
+        <a class="navbar-brand" href="#inicio">
+          <img src="{{ asset('img/logo-aura.svg') }}" alt="Aura Artesanal" width="180" height="44" />
+        </a>
+        <button class="navbar-toggler border-0 shadow-none" type="button" data-bs-toggle="collapse" data-bs-target="#menuPrincipalCollapse">
+          <span class="navbar-toggler-icon"></span>
+        </button>
+        <div class="collapse navbar-collapse" id="menuPrincipalCollapse">
+          <ul class="navbar-nav ms-auto mb-2 mb-lg-0 align-items-lg-center">
+            <li class="nav-item"><a class="nav-link" href="#inicio">Inicio</a></li>
+            <li class="nav-item"><a class="nav-link" href="#empresa">Empresa</a></li>
+            <li class="nav-item"><a class="nav-link" href="#productos">Catálogo</a></li>
+            <li class="nav-item"><a class="nav-link" href="#galeria">Galería</a></li>
+            <li class="nav-item"><a class="nav-link" href="#promociones">Promociones</a></li>
+            <li class="nav-item"><a class="nav-link" href="#contacto">Contacto</a></li>
+            <li class="nav-item ms-lg-3 mt-2 mt-lg-0">
+              <a id="nav-btn-wa" class="btn-nav-wa" href="https://wa.me/522383033981" target="_blank" rel="noopener noreferrer">
+                <i class="bi bi-whatsapp me-1 text-success"></i> WhatsApp
+              </a>
+            </li>
+            <li class="nav-item ms-lg-2 mt-2 mt-lg-0">
+              @auth
+                <a class="btn btn-dark btn-sm rounded-pill px-3 py-2 fw-semibold" href="{{ route('dashboard') }}">
+                  <i class="bi bi-speedometer2 me-1"></i> Panel ({{ auth()->user()->name }})
+                </a>
+              @else
+                <a class="btn btn-outline-dark btn-sm rounded-pill px-3 py-2 fw-semibold" href="{{ route('login') }}">
+                  <i class="bi bi-shield-lock me-1"></i> Acceso administrativo
+                </a>
+              @endauth
+            </li>
+          </ul>
+        </div>
+      </div>
+    </nav>
+  </header>
+
+  <main>
+    <section id="inicio" class="hero-section">
+      <div class="container">
+        <div class="row align-items-center gy-5">
+          <div class="col-12 col-lg-7">
+            <div class="pe-lg-4">
+              <div class="hero-pill"><i class="bi bi-stars"></i> Joyería Artesanal de Autor</div>
+              <h1 id="hero-heading" class="hero-title font-serif">Piezas únicas, tejidas con amor y detalladas con cristal</h1>
+              <p class="hero-lead">Pulseras, collares, aretes, anillos y llaveros personalizados. Tejidos a mano con mostacillas, cristales y detalles delicados para regalar o lucir a tu estilo.</p>
+              <div class="d-flex flex-wrap gap-3">
+                <a href="#productos" class="btn-aura-primary"><i class="bi bi-gem"></i> Explorar Catálogo</a>
+                <a href="#contacto" class="btn-aura-outline"><i class="bi bi-hammer"></i> Piezas a la Medida</a>
+              </div>
+              <div class="hero-badges-wrapper">
+                <div class="hero-badge-item"><i class="bi bi-hand-index-thumb"></i><span>100% Hecho a Mano</span></div>
+                <div class="hero-badge-item"><i class="bi bi-heart"></i><span>Piezas Únicas o por Pedido</span></div>
+                <div class="hero-badge-item"><i class="bi bi-box-seam"></i><span>Atención por WhatsApp</span></div>
+              </div>
+            </div>
+          </div>
+          <div class="col-12 col-lg-5">
+            <div class="hero-img-container">
+              <img src="{{ asset('img/hero-artesanal.svg') }}" alt="Taller artesanal" class="img-fluid w-100" />
+            </div>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <section id="empresa" class="empresa-section">
+      <div class="container">
+        <div class="text-center max-w-700 mx-auto mb-5">
+          <span class="section-subtitle">Nuestra Esencia</span>
+          <h2 id="empresa-heading" class="display-6 font-serif">Aura Artesanal</h2>
+          <div class="divider-gold"></div>
+          <p id="emp-descripcion" class="text-muted">Aura Artesanal nace del gusto por crear piezas pequeñas con gran detalle.</p>
+        </div>
+        <div class="row g-4 mb-5">
+          <div class="col-12 col-md-6">
+            <article class="empresa-card-mv">
+              <div class="icon-box-circle"><i class="bi bi-compass"></i></div>
+              <h3 class="h4 font-serif mb-3">Misión</h3>
+              <p id="emp-mision" class="text-secondary mb-0">Crear joyería artesanal única que permita expresar personalidad.</p>
+            </article>
+          </div>
+          <div class="col-12 col-md-6">
+            <article class="empresa-card-mv">
+              <div class="icon-box-circle"><i class="bi bi-eye"></i></div>
+              <h3 class="h4 font-serif mb-3">Visión</h3>
+              <p id="emp-vision" class="text-secondary mb-0">Ser una marca reconocida por sus piezas hechas a mano con diseños originales.</p>
+            </article>
+          </div>
+        </div>
+        <div class="mt-5">
+          <div class="text-center mb-4">
+            <h3 class="h4 font-serif">Valores que Forjan Nuestra Identidad</h3>
+            <p class="text-muted small">Los pilares presentes en cada pieza que sale del taller.</p>
+          </div>
+          <div class="row g-3 row-cols-1 row-cols-sm-2 row-cols-md-3 row-cols-lg-5 justify-content-center">
+            <div class="col"><div class="valor-card"><div class="valor-icon"><i class="bi bi-palette"></i></div><h4 class="h6 font-serif mb-2">Creatividad</h4><p class="small text-muted mb-0">Diseños distintos con combinaciones originales.</p></div></div>
+            <div class="col"><div class="valor-card"><div class="valor-icon"><i class="bi bi-fingerprint"></i></div><h4 class="h6 font-serif mb-2">Autenticidad</h4><p class="small text-muted mb-0">Cada pieza refleja el gusto de quien la lleva.</p></div></div>
+            <div class="col"><div class="valor-card"><div class="valor-icon"><i class="bi bi-stars"></i></div><h4 class="h6 font-serif mb-2">Originalidad</h4><p class="small text-muted mb-0">Piezas únicas, lejos de lo masificado.</p></div></div>
+            <div class="col"><div class="valor-card"><div class="valor-icon"><i class="bi bi-heart-pulse"></i></div><h4 class="h6 font-serif mb-2">Dedicación</h4><p class="small text-muted mb-0">Paciencia, detalle y mimo en cada paso.</p></div></div>
+            <div class="col"><div class="valor-card"><div class="valor-icon"><i class="bi bi-person-check"></i></div><h4 class="h6 font-serif mb-2">Individualidad</h4><p class="small text-muted mb-0">Celebramos gustos, ideas y formas de ser únicas.</p></div></div>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <section id="productos" class="catalogo-section">
+      <div class="container">
+        <div class="text-center max-w-700 mx-auto mb-4">
+          <span class="section-subtitle">Colecciones Vigentes</span>
+          <h2 id="catalogo-heading" class="display-6 font-serif">Catálogo de Piezas Artesanales</h2>
+          <div class="divider-gold"></div>
+          <p class="text-muted">Filtra por categoría, busca por nombre o detalle, y cotiza directamente por WhatsApp.</p>
+        </div>
+        <div class="row justify-content-center mb-4">
+          <div class="col-12 col-md-6 mb-3">
+            <div class="input-group shadow-sm rounded-pill overflow-hidden border">
+              <span class="input-group-text bg-white border-0 ps-3"><i class="bi bi-search text-muted"></i></span>
+              <input type="text" id="buscador-catalogo" class="form-control border-0 py-2" placeholder="Buscar por título, detalle o código (ej. PZ-16)..." />
+            </div>
+          </div>
+          <div class="col-12">
+            <div id="filtros-catalogo" class="catalogo-filters">
+              <button type="button" class="btn-filter active" data-filter="todos">Todas</button>
+            </div>
+          </div>
+          <div class="col-12 text-center">
+            <span id="contador-productos" class="text-muted small fw-medium">Cargando catálogo...</span>
+          </div>
+        </div>
+        <div id="grid-productos" class="row g-4"></div>
+      </div>
+    </section>
+
+    <section id="galeria" class="galeria-section">
+      <div class="container">
+        <div class="text-center max-w-700 mx-auto mb-5">
+          <span class="section-subtitle">Detalle de las Piezas</span>
+          <h2 id="galeria-heading" class="display-6 font-serif">Galería de las Nuevas Creaciones</h2>
+          <div class="divider-gold"></div>
+        </div>
+        <div class="row g-4">
+          <div class="col-12 col-md-4">
+            <figure class="galeria-item" data-titulo="Selección de Materiales" data-desc="Eligiendo cristales, mostacillas y detalles para dar vida a cada diseño.">
+              <img src="{{ asset('img/hero-artesanal.svg') }}" alt="Selección de Materiales" />
+              <div class="galeria-overlay"><h4>Selección de Materiales</h4><p><i class="bi bi-zoom-in me-1"></i> Pulsa para ampliar</p></div>
+            </figure>
+          </div>
+          <div class="col-12 col-md-4">
+            <figure class="galeria-item" data-titulo="Tejido a Mano" data-desc="Cada cuenta se coloca con paciencia para lograr un equilibrio perfecto.">
+              <img src="{{ asset('img/galeria-taller-1.svg') }}" alt="Tejido a Mano" />
+              <div class="galeria-overlay"><h4>Tejido a Mano</h4><p><i class="bi bi-zoom-in me-1"></i> Pulsa para ampliar</p></div>
+            </figure>
+          </div>
+          <div class="col-12 col-md-4">
+            <figure class="galeria-item" data-titulo="Detalle y Acabado" data-desc="Revisión final, cierres y ajuste para que la pieza quede impecable.">
+              <img src="{{ asset('img/galeria-taller-3.svg') }}" alt="Detalle y Acabado" />
+              <div class="galeria-overlay"><h4>Detalle y Acabado</h4><p><i class="bi bi-zoom-in me-1"></i> Pulsa para ampliar</p></div>
+            </figure>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <section id="promociones" class="promociones-section">
+      <div class="container">
+        <div class="text-center max-w-700 mx-auto mb-5">
+          <span class="section-subtitle">Beneficios &amp; Cuidados</span>
+          <h2 id="promociones-heading" class="display-6 font-serif">Información Relevante</h2>
+          <div class="divider-gold"></div>
+        </div>
+        <div class="promo-banner mb-5">
+          <div class="row align-items-center gy-4">
+            <div class="col-12 col-lg-8">
+              <span id="promo-etiqueta" class="badge bg-warning text-dark px-3 py-2 rounded-pill fw-bold mb-3">
+                <i class="bi bi-tag-fill me-1"></i> Promoción Vigente
+              </span>
+              <h3 id="promo-titulo" class="h2 font-serif text-white mb-2">Detalle para regalar</h3>
+              <p id="promo-descripcion" class="text-light mb-0 fs-6">En la compra de 2 o más piezas, recibe empaque regalo incluido.</p>
+            </div>
+            <div class="col-12 col-lg-4 text-lg-end">
+              <a href="#productos" class="btn btn-light rounded-pill px-4 py-2 fw-semibold shadow-sm">Explorar Catálogo</a>
+            </div>
+          </div>
+        </div>
+        <div class="row g-4">
+          <div class="col-12 col-md-4"><article class="info-card"><i class="bi bi-clock-history"></i><h3 class="h5 font-serif mb-2">Tiempos de Elaboración</h3><p class="small text-muted mb-0"><strong>Piezas en stock:</strong> 1 a 3 días hábiles.<br /><strong>Personalizadas:</strong> 5 a 10 días hábiles.</p></article></div>
+          <div class="col-12 col-md-4"><article class="info-card"><i class="bi bi-box2-heart"></i><h3 class="h5 font-serif mb-2">Empaque y Cuidado</h3><p class="small text-muted mb-0">Cada pieza se entrega con bolsita protectora. Evita mojarla o aplicar perfume directo.</p></article></div>
+          <div class="col-12 col-md-4"><article class="info-card"><i class="bi bi-award"></i><h3 class="h5 font-serif mb-2">Garantía de Taller</h3><p class="small text-muted mb-0">Respaldo de calidad en el armado y cierre de la pieza.</p></article></div>
+        </div>
+      </div>
+    </section>
+
+    <section id="contacto" class="contacto-section">
+      <div class="container">
+        <div class="text-center max-w-700 mx-auto mb-5">
+          <span class="section-subtitle">Canal Directo</span>
+          <h2 id="contacto-heading" class="display-6 font-serif">Solicita tu Pieza o Cotización a Medida</h2>
+          <div class="divider-gold"></div>
+        </div>
+        <div class="row g-4 justify-content-center">
+          <div class="col-12 col-lg-7">
+            <div class="contacto-form-container">
+              <form id="form-contacto" class="needs-validation" novalidate>
+                <div class="row g-3">
+                  <div class="col-12 col-md-6">
+                    <label for="contacto-nombre" class="form-label small fw-semibold">Nombre Completo *</label>
+                    <input type="text" class="form-control" id="contacto-nombre" placeholder="Ej. Thais Ramírez" required />
+                  </div>
+                  <div class="col-12 col-md-6">
+                    <label for="contacto-telefono" class="form-label small fw-semibold">Teléfono o WhatsApp *</label>
+                    <input type="tel" class="form-control" id="contacto-telefono" placeholder="Ej. 238 303 3981" required />
+                  </div>
+                  <div class="col-12 col-md-6">
+                    <label for="contacto-tipo" class="form-label small fw-semibold">Tipo de Pieza *</label>
+                    <select class="form-select" id="contacto-tipo" required>
+                      <option value="" selected disabled>Selecciona una opción...</option>
+                      <option value="Anillo">Anillo</option>
+                      <option value="Collar">Collar o Dije</option>
+                      <option value="Aretes">Aretes</option>
+                      <option value="Pulsera">Pulsera</option>
+                      <option value="Llavero">Llavero Personalizado</option>
+                    </select>
+                  </div>
+                  <div class="col-12 col-md-6">
+                    <label for="contacto-gema" class="form-label small fw-semibold">Color o Detalle</label>
+                    <input type="text" class="form-control" id="contacto-gema" placeholder="Ej. Verde, Morado..." />
+                  </div>
+                  <div class="col-12">
+                    <label for="contacto-mensaje" class="form-label small fw-semibold">Detalles del Pedido *</label>
+                    <textarea class="form-control" id="contacto-mensaje" rows="4" required></textarea>
+                  </div>
+                  <div class="col-12 mt-4">
+                    <button type="submit" class="btn btn-success w-100 py-3 rounded-pill fw-semibold shadow-sm">
+                      <i class="bi bi-whatsapp fs-5 me-1"></i> Enviar Consulta a WhatsApp
+                    </button>
+                  </div>
+                </div>
+              </form>
+            </div>
+          </div>
+          <div class="col-12 col-lg-5">
+            <div class="contacto-info-box">
+              <div>
+                <h3 id="emp-titulo-caja" class="h4 font-serif text-white mb-3">Atelier Aura Artesanal</h3>
+                <p class="text-light small mb-4">Atención directa por WhatsApp para pedidos personalizados.</p>
+                <div class="contacto-item"><i class="bi bi-geo-alt"></i><div><strong class="d-block text-white">Ubicación:</strong><span id="emp-ubicacion" class="text-light small">-</span></div></div>
+                <div class="contacto-item"><i class="bi bi-whatsapp"></i><div><strong class="d-block text-white">WhatsApp:</strong><a id="emp-whatsapp-link" class="text-light small text-decoration-underline" href="#" target="_blank">-</a></div></div>
+                <div class="contacto-item"><i class="bi bi-telephone"></i><div><strong class="d-block text-white">Teléfono:</strong><a id="emp-telefono-link" class="text-light small text-decoration-underline" href="#">-</a></div></div>
+                <div class="contacto-item"><i class="bi bi-envelope"></i><div><strong class="d-block text-white">Correo Electrónico:</strong><a id="emp-email-link" class="text-light small text-decoration-underline" href="#">-</a></div></div>
+                <div class="contacto-item"><i class="bi bi-map"></i><div><strong class="d-block text-white">Ubicación en mapa:</strong><a id="emp-mapa-link" class="text-light small text-decoration-underline" href="#" target="_blank">Abrir Google Maps</a></div></div>
+                <div class="contacto-item"><i class="bi bi-clock"></i><div><strong class="d-block text-white">Horario de Atención:</strong><span id="emp-horario" class="text-light small">-</span></div></div>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </section>
+  </main>
+
+  <footer class="footer-aura">
+    <div class="container text-center">
+      <h4 id="footer-nombre" class="h5 mb-2 text-white font-serif">Aura Artesanal</h4>
+      <p id="footer-ubicacion" class="small text-light mb-2">Atelier de joyería artesanal</p>
+      <p class="small text-muted mb-0">© 2026 Aura Artesanal • Sistema Integrado en Laravel</p>
+    </div>
+  </footer>
+
+  <a id="float-btn-wa" href="https://wa.me/522383033981" target="_blank" class="btn-whatsapp-float"><i class="bi bi-whatsapp"></i></a>
+
+  <!-- Modal Detalle -->
+  <div class="modal fade modal-aura" id="modalDetalleJoya" tabindex="-1" aria-hidden="true">
+    <div class="modal-dialog modal-dialog-centered modal-lg">
+      <div class="modal-content">
+        <div class="modal-header">
+          <div class="d-flex align-items-center gap-2">
+            <span id="modalDetalleCategoria" class="text-uppercase small fw-bold text-muted">Joyas</span>
+            <span id="modalDetalleDisponibilidad" class="badge rounded-pill bg-success">Disponible</span>
+            <span id="modalDetalleCodigo" class="badge rounded-pill bg-secondary">PZ-00</span>
+          </div>
+          <button type="button" class="btn-close" data-bs-dismiss="modal"></button>
+        </div>
+        <div class="modal-body">
+          <div class="row g-4 align-items-center">
+            <div class="col-12 col-md-6 text-center">
+              <img id="modalDetalleImg" src="" alt="" class="img-fluid rounded-3" style="max-height: 280px;" />
+            </div>
+            <div class="col-12 col-md-6">
+              <h3 id="modalDetalleTitulo" class="h4 font-serif text-dark mb-2"></h3>
+              <p id="modalDetalleDescripcion" class="text-muted small mb-3"></p>
+              <p class="small"><strong>Materiales:</strong> <span id="modalDetalleMaterial"></span></p>
+              <div class="d-flex align-items-center justify-content-between mt-3">
+                <span id="modalDetallePrecio" class="h4 font-serif text-dark mb-0"></span>
+                <a id="modalDetalleBtnWa" href="#" target="_blank" class="btn btn-success rounded-pill px-4 py-2 fw-semibold">
+                  <i class="bi bi-whatsapp me-1"></i> Cotizar Pieza
+                </a>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <!-- Modal Galería -->
+  <div class="modal fade modal-aura" id="modalGaleria" tabindex="-1" aria-hidden="true">
+    <div class="modal-dialog modal-dialog-centered modal-lg">
+      <div class="modal-content">
+        <div class="modal-header">
+          <h3 id="modalGaleriaTitulo" class="h5 font-serif mb-0"></h3>
+          <button type="button" class="btn-close" data-bs-dismiss="modal"></button>
+        </div>
+        <div class="modal-body text-center p-4">
+          <img id="modalGaleriaImg" src="" alt="" class="img-fluid rounded-3 mb-3" style="max-height: 450px;" />
+          <p id="modalGaleriaDesc" class="text-muted small mb-0"></p>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/js/bootstrap.bundle.min.js" crossorigin="anonymous"></script>
+  <script>
+    document.addEventListener('DOMContentLoaded', () => {
+      const API_BASE = '{{ url("/api") }}';
+      const ASSET_BASE = '{{ asset("") }}';
+      let whatsappTaller = '522383033981';
+      let piezasGlobal = [];
+      let filtroCategoria = 'todos';
+      let terminoBusqueda = '';
+
+      fetch(`${API_BASE}/empresa`)
+        .then(res => res.json())
+        .then(json => {
+          if (json.status === 'success' && json.data) {
+            const emp = json.data;
+            const setTxt = (id, val) => { const el = document.getElementById(id); if (el && val) el.textContent = val; };
+            setTxt('empresa-heading', emp.nombre_comercial);
+            setTxt('emp-descripcion', emp.descripcion);
+            setTxt('emp-mision', emp.mision);
+            setTxt('emp-vision', emp.vision);
+            setTxt('emp-titulo-caja', `Atelier ${emp.nombre_comercial}`);
+            setTxt('emp-ubicacion', emp.ubicacion);
+            setTxt('footer-nombre', emp.nombre_comercial);
+            setTxt('footer-ubicacion', emp.ubicacion);
+            setTxt('emp-horario', emp.horario_especial ? `${emp.horario_normal} | ${emp.horario_especial}` : emp.horario_normal);
+
+            if (emp.numero_whatsapp) {
+              whatsappTaller = emp.numero_whatsapp.replace(/\D/g, '');
+              document.getElementById('emp-whatsapp-link').href = `https://wa.me/${whatsappTaller}`;
+              document.getElementById('emp-whatsapp-link').textContent = `+${whatsappTaller}`;
+              document.getElementById('nav-btn-wa').href = `https://wa.me/${whatsappTaller}`;
+              document.getElementById('float-btn-wa').href = `https://wa.me/${whatsappTaller}`;
+            }
+            if (emp.telefono) {
+              document.getElementById('emp-telefono-link').href = `tel:${emp.telefono}`;
+              document.getElementById('emp-telefono-link').textContent = emp.telefono;
+            }
+            if (emp.email) {
+              document.getElementById('emp-email-link').href = `mailto:${emp.email}`;
+              document.getElementById('emp-email-link').textContent = emp.email;
+            }
+            if (emp.url_mapa) document.getElementById('emp-mapa-link').href = emp.url_mapa;
+          }
+        });
+
+      fetch(`${API_BASE}/promociones`)
+        .then(res => res.json())
+        .then(json => {
+          if (json.status === 'success' && json.data?.length > 0) {
+            const p = json.data[0];
+            document.getElementById('promo-etiqueta').innerHTML = `<i class="bi bi-tag-fill me-1"></i> ${p.etiqueta}`;
+            document.getElementById('promo-titulo').textContent = p.titulo;
+            document.getElementById('promo-descripcion').textContent = p.descripcion;
+          }
+        });
+
+      const grid = document.getElementById('grid-productos');
+      const contador = document.getElementById('contador-productos');
+      const filtrosContainer = document.getElementById('filtros-catalogo');
+
+      function renderizarPiezas() {
+        const filtradas = piezasGlobal.filter(p => {
+          const cat = (p.categoria?.nombre || '').toLowerCase();
+          const okCat = filtroCategoria === 'todos' || cat === filtroCategoria;
+          const txt = `${p.codigo} ${p.nombre} ${p.materiales || ''} ${p.descripcion || ''}`.toLowerCase();
+          return okCat && txt.includes(terminoBusqueda);
+        });
+        contador.textContent = `Mostrando ${filtradas.length} de ${piezasGlobal.length} piezas`;
+        grid.innerHTML = filtradas.map(p => {
+          const imgSrc = p.imagen ? `${ASSET_BASE}${p.imagen}` : `${ASSET_BASE}img/hero-artesanal.svg`;
+          const msgWa = encodeURIComponent(`Hola Aura Artesanal, me interesa la pieza ${p.codigo} - ${p.nombre} ($${Number(p.precio).toFixed(2)} MXN).`);
+          return `
+            <div class="col-12 col-md-6 col-lg-4">
+              <article class="card h-100 border-0 shadow-sm rounded-4 overflow-hidden">
+                <div class="position-relative bg-light" style="height: 230px;">
+                  <img src="${imgSrc}" alt="${p.nombre}" class="w-100 h-100" style="object-fit: cover;" onerror="this.src='${ASSET_BASE}img/hero-artesanal.svg'" />
+                  <span class="badge bg-success rounded-pill position-absolute top-0 end-0 m-3 px-3 py-2">${p.disponibilidad}</span>
+                </div>
+                <div class="card-body d-flex flex-column p-4">
+                  <span class="text-uppercase small fw-bold text-warning mb-1">${p.categoria?.nombre || 'Joyería'} • ${p.codigo}</span>
+                  <h3 class="h5 font-serif text-dark mb-2">${p.nombre}</h3>
+                  <p class="small text-muted flex-grow-1">${p.descripcion || ''}</p>
+                  <div class="d-flex align-items-center justify-content-between pt-3 border-top mt-2">
+                    <span class="h5 font-serif fw-bold mb-0">$${Number(p.precio).toFixed(0)} MXN</span>
+                    <div class="d-flex gap-2">
+                      <button type="button" class="btn btn-outline-dark btn-sm rounded-pill px-3 btn-ver-detalle" data-id="${p.id}">Detalle</button>
+                      <a href="https://wa.me/${whatsappTaller}?text=${msgWa}" target="_blank" class="btn btn-success btn-sm rounded-pill px-3"><i class="bi bi-whatsapp me-1"></i> Cotizar</a>
+                    </div>
+                  </div>
+                </div>
+              </article>
+            </div>`;
+        }).join('');
+
+        document.querySelectorAll('.btn-ver-detalle').forEach(btn => {
+          btn.addEventListener('click', () => {
+            const p = piezasGlobal.find(i => String(i.id) === btn.dataset.id);
+            if (!p) return;
+            document.getElementById('modalDetalleCategoria').textContent = p.categoria?.nombre || 'Joyería';
+            document.getElementById('modalDetalleDisponibilidad').textContent = p.disponibilidad;
+            document.getElementById('modalDetalleCodigo').textContent = p.codigo;
+            document.getElementById('modalDetalleImg').src = p.imagen ? `${ASSET_BASE}${p.imagen}` : `${ASSET_BASE}img/hero-artesanal.svg`;
+            document.getElementById('modalDetalleTitulo').textContent = p.nombre;
+            document.getElementById('modalDetalleDescripcion').textContent = p.descripcion || '';
+            document.getElementById('modalDetalleMaterial').textContent = p.materiales || 'Artesanal';
+            document.getElementById('modalDetallePrecio').textContent = `$${Number(p.precio).toFixed(2)} MXN`;
+            document.getElementById('modalDetalleBtnWa').href = `https://wa.me/${whatsappTaller}?text=${encodeURIComponent(`Hola, cotizo ${p.codigo} (${p.nombre})`)}`;
+            new bootstrap.Modal(document.getElementById('modalDetalleJoya')).show();
+          });
+        });
+      }
+
+      fetch(`${API_BASE}/piezas`)
+        .then(res => res.json())
+        .then(json => {
+          if (json.status === 'success') {
+            piezasGlobal = json.data || [];
+            const btns = (json.categorias || []).map(c => `<button type="button" class="btn-filter" data-filter="${c.nombre.toLowerCase()}">${c.nombre}</button>`).join('');
+            filtrosContainer.innerHTML = `<button type="button" class="btn-filter active" data-filter="todos">Todas</button>${btns}`;
+            filtrosContainer.querySelectorAll('.btn-filter').forEach(b => {
+              b.addEventListener('click', () => {
+                filtrosContainer.querySelectorAll('.btn-filter').forEach(x => x.classList.remove('active'));
+                b.classList.add('active');
+                filtroCategoria = b.dataset.filter;
+                renderizarPiezas();
+              });
+            });
+            renderizarPiezas();
+          }
+        });
+
+      document.getElementById('buscador-catalogo')?.addEventListener('input', e => {
+        terminoBusqueda = e.target.value.trim().toLowerCase();
+        renderizarPiezas();
+      });
+
+      document.querySelectorAll('.galeria-item').forEach(fig => {
+        fig.addEventListener('click', () => {
+          document.getElementById('modalGaleriaTitulo').textContent = fig.dataset.titulo;
+          document.getElementById('modalGaleriaDesc').textContent = fig.dataset.desc;
+          document.getElementById('modalGaleriaImg').src = fig.querySelector('img').src;
+          new bootstrap.Modal(document.getElementById('modalGaleria')).show();
+        });
+      });
+
+      document.getElementById('form-contacto')?.addEventListener('submit', e => {
+        e.preventDefault();
+        const form = e.target;
+        if (!form.checkValidity()) { form.classList.add('was-validated'); return; }
+        const txt = `Hola Aura Artesanal, soy *${document.getElementById('contacto-nombre').value}* (${document.getElementById('contacto-telefono').value}). Cotizo: *${document.getElementById('contacto-tipo').value}* (${document.getElementById('contacto-gema').value}). ${document.getElementById('contacto-mensaje').value}`;
+        window.open(`https://wa.me/${whatsappTaller}?text=${encodeURIComponent(txt)}`, '_blank');
+      });
+    });
+  </script>
+</body>
+</html>
